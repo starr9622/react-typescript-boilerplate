@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --watch --mode development",
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -13,14 +14,17 @@
   "devDependencies": {
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "source-map-loader": "^1.1.0",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "clean-webpack-plugin": "^3.0.0"
   }
 }

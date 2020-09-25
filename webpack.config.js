@@ -1,12 +1,13 @@
-module.exports = {
-  mode: "production",
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require("path");
 
-  devtool: "source-map",
+module.exports = {
+  entry: "./src/index.tsx",
 
   resolve: {
-    extensions: [".ts", ".tsx"],
+    extensions: [".ts", ".tsx", ".js"],
   },
-
   module: {
     rules: [
       {
@@ -25,8 +26,17 @@ module.exports = {
       },
     ],
   },
-  externals: {
-    react: "React",
-    "react-dom": "ReactDOM",
+
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
+
+  plugins: [
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      filename: "./index.html",
+    }),
+  ],
 };
