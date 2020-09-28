@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -19,11 +18,6 @@ module.exports = {
           },
         ],
       },
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "source-map-loader",
-      },
     ],
   },
 
@@ -33,7 +27,6 @@ module.exports = {
   },
 
   plugins: [
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "./index.html",
